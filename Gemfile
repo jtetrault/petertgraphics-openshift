@@ -6,8 +6,13 @@ gem 'rack', '~> 1.4.5'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
-gem 'sqlite3'
+group :production do
+	gem 'mysql2'
+end
+
+group :development, :test do
+	gem 'sqlite3'
+end
 
 
 # Gems used only for assets and not required
@@ -44,3 +49,21 @@ gem 'thor', '= 0.14.6'
 
 # This needs to be installed so we can run Rails console on OpenShift directly
 gem 'minitest'
+
+# Twitter bootstrap
+gem 'twitter-bootstrap-rails'
+
+# Authentication gem
+gem 'devise'
+
+# Paperclip
+gem 'paperclip', '3.4.2'
+
+# cancan
+gem 'cancan'
+
+# redcarpet for markdown interpretation
+gem 'redcarpet'
+
+# JavaScript runtime
+gem 'therubyracer'
