@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RailsApp</title>
+  <title>Peter T Graphics</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-<%= yield %>
+	<%= nav_bar :static => :top, :brand => "Peter T Graphics", :responsive => true do %>
+		<%= menu_group do %>
+			<%= menu_item "Home", root_path %>
+			<%= menu_divider %>
+		<% end %>
+
+	<% end %>
+
+	<div class="container content">
+		<%= yield %>
+	</div>
 
 </body>
 </html>
