@@ -1,4 +1,10 @@
 RailsApp::Application.routes.draw do
+  resources :posts
+
+
+  resources :categories
+
+
   get "welcome/index"
 
   root :to => 'welcome#index'
