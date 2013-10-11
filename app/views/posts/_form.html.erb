@@ -16,8 +16,8 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :Category %><br />
-    <%= f.text_field :Category %>
+    <%= f.label :category %><br />
+    <%= collection_select(:post, :category_id, Category.all, :id, :title) %>
   </div>
   <div class="field">
     <%= f.label :image %><br />

@@ -13,6 +13,11 @@
 		<%= menu_group do %>
 			<%= menu_item "Home", root_path %>
 			<%= menu_divider %>
+			<%= drop_down "Categories" do %>
+				<% Category.all.each do |category| %>
+					<%= menu_item category.title, category_path(category) %>
+				<% end %>
+			<% end %>
 		<% end %>
 
 	<% end %>

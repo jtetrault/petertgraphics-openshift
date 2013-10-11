@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20131010212516) do
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "Category_id"
+    t.integer  "category_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.string   "image_file_name"
@@ -32,6 +32,6 @@ ActiveRecord::Schema.define(:version => 20131010212516) do
     t.datetime "image_updated_at"
   end
 
-  add_index "posts", ["Category_id"], :name => "index_posts_on_Category_id"
+  add_index "posts", ["category_id"], :name => "index_posts_on_Category_id"
 
 end
