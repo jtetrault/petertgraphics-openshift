@@ -1,15 +1,18 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="span6">
+	 	<h1><%= @category.title %></h1>
+	</div>
+</div>
+<div class="row">
+	<div class="span8">
+		<p>
+			<%= @category.description %>
+		</p>
+	</div>
+</div>
 
-<p>
-  <b>Title:</b>
-  <%= @category.title %>
-</p>
+<%= render @category.posts.reverse %>
 
-<p>
-  <b>Description:</b>
-  <%= @category.description %>
-</p>
-
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Edit', edit_category_path(@category), :class => :btn %>
+<%= link_to 'Back', categories_path, :class => :btn %>

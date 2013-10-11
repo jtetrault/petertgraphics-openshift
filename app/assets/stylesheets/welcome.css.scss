@@ -2,9 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$content-background: #ececec;
+
 img.banner
 {
  	-moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+}
+
+div.content
+{
+	// Background color
+	background-color: $content-background;
+
+	// Border
+	-moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     -khtml-border-radius: 6px;
     border-radius: 6px;

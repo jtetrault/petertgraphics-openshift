@@ -1,12 +1,14 @@
 <div class="row">
-	<div class="span10 offset1">
-		<div class="hero-unit">
-			<%= image_tag "header.png", :class => :banner %>
-			<div class="row">
-				<div class="span9">
-					Recent Posts Here
-				</div>
-			</div>
-		</div>
+	<div class="span10 offset2">
+		<%= image_tag "header.png", :class => :banner %>
 	</div>
 </div>
+
+<hr/>
+<div class="row">
+	<div class="span10 offset1">
+		<h3>Recent Updates</h3>
+	</div>
+</div>
+
+<%= render @posts %>

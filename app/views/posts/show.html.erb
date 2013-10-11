@@ -1,20 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
+<div class="row">
+	<div class="span10 offset2">
+		<h1><%= @post.title %></h1>
+	</div>
+</div>
 
-<p>
-  <b>Description:</b>
-  <%= @post.description %>
-</p>
+<div class="row">
+	<div class="span10 offset2">
+		<h1><%= link_to image_tag(@post.image.url(:large), :id => "image"), @post.image.url(:original) %></h1>
+	</div>
+</div>
 
-<p>
-  <b>Category:</b>
-  <%= @post.category.title %>
-</p>
-
+<div class="row">
+	<div class="span10 offset2">
+		<p><%= @post.description %></p>
+	</div>
+</div>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
