@@ -9,7 +9,7 @@
 		<p><%= link_to "Read More", post_path(post) %></p>
 	</div>
 	<div class="span5 offset1">
-		<%= image_tag post.image.url(:medium) %>
+		<%= image_tag post.image.url(:medium), :class => "bordered-image" %>
 	</div>
 </div>
 <div class="row">
