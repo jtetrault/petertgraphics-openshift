@@ -1,25 +1,12 @@
-<h1>Listing categories</h1>
+<div class="admin-actions pull-right">
+  <%= link_to 'New Category', new_category_path, :class => "btn btn-primary" %>
+</div>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="row">
+  <div class="span10 offset1">
+    <h1>Categories</h1>
+    <p>Click a category to view all related posts. The most recent entry is displayed next to the category description.</p>
+  </div>
+</div>
 
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= category.title %></td>
-    <td><%= category.description %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Category', new_category_path %>
+<%= render @categories %>

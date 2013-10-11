@@ -1,11 +1,15 @@
 <p id="notice"><%= notice %></p>
+<div class="admin-actions pull-right">
+	<%= link_to 'New Post', new_post_path, :class => "btn btn-primary" %>
+	<%= link_to 'Edit Category', edit_category_path(@category), :class => "btn" %>
+</div>
 <div class="row">
-	<div class="span6">
+	<div class="span6 offset1">
 	 	<h1><%= @category.title %></h1>
 	</div>
 </div>
 <div class="row">
-	<div class="span8">
+	<div class="span8 offset1">
 		<p>
 			<%= @category.description %>
 		</p>
@@ -14,5 +18,4 @@
 
 <%= render @category.posts.reverse %>
 
-<%= link_to 'Edit', edit_category_path(@category), :class => :btn %>
-<%= link_to 'Back', categories_path, :class => :btn %>
+<%= link_to 'Back', categories_path, :class => "btn" %>

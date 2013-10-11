@@ -14,6 +14,8 @@
 			<%= menu_item "Home", root_path %>
 			<%= menu_divider %>
 			<%= drop_down "Categories" do %>
+				<%= menu_item "All Categories", categories_path %>
+				<%= drop_down_divider %>
 				<% Category.all.each do |category| %>
 					<%= menu_item category.title, category_path(category) %>
 				<% end %>
