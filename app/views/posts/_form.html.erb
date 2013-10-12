@@ -12,25 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :category %><br />
+    <%= f.label :category %>
     <%= collection_select(:post, :category_id, Category.all, :id, :title) %>
   </div>
   <div class="field">
-    <%= f.label :image %><br />
+    <%= f.label :image %>
     <% if @post.image.exists? %>
-      <%= image_tag @post.image.url(:medium) %> <br />
+      <%= image_tag @post.image.url(:medium), :class => "bordered-image" %> <br />
     <% end %>
     <%= f.file_field :image %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save Post", :class => "btn btn-primary" %>
+    <%= cancel_button %>
   </div>
 <% end %>

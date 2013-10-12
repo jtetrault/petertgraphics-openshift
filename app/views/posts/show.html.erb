@@ -22,5 +22,10 @@
 		<p><%= @post.description %></p>
 	</div>
 </div>
+<div class="row">
+	<div class="span10 offset2">
+		<p> Posted in <%= link_to @post.category.title, @post.category %> at <%= @post.created_at %> </p>
+	</div>
+</div>
 
-<%= link_to 'Back', @post.errors.any? ? request.env['HTTP_REFERRER'] : :back, :class => "btn" %>
+<%= back_button @post.category %>
