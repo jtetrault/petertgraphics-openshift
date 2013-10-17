@@ -21,4 +21,9 @@ module ApplicationHelper
 		end
 		return link_to "Back", request.env["HTTP_REFERER"], :class => "btn"
 	end
+
+	def markdown(content)
+		@markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+		@markdown.render(content).html_safe
+	end
 end
