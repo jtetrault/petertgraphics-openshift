@@ -41,10 +41,12 @@
 
 	<div class="container content">
 		<div class="row">
-			<div class="offset1 span11"%>
-				<p class="notice"><%= notice %></p>
-	   			<p class="alert"><%= alert %></p>
-			</div>
+			<% if notice != nil or alert != nil %>
+				<div class="offset1 span10"%>
+					<p class="notice"><%= notice %></p>
+		   			<p class="alert"><%= alert %></p>
+				</div>
+			<% end %>
 		</div>
 		<%= yield %>
 	</div>
