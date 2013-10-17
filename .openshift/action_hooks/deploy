@@ -21,8 +21,8 @@ then
 fi
 
 # Some paperclip handling found at  http://stackoverflow.com/questions/16678669/paperclip-configuration-to-use-with-openshift/
-STORED_ASSETS="${OPENSHIFT_DATA_DIR}/assets/paperclip"
-LIVE_ASSETS="${OPENSHIFT_REPO_DIR}/public/assets/paperclip"
+STORED_ASSETS="${OPENSHIFT_DATA_DIR}assets/paperclip"
+LIVE_ASSETS="${OPENSHIFT_REPO_DIR}public/assets/paperclip"
 
 # Ensure our stored assets directory exists
 if [ ! -d "${STORED_ASSETS}" ]; then
