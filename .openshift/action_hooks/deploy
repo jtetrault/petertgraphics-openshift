@@ -20,6 +20,20 @@ then
     exit 5
 fi
 
+# Some paperclip handling found at  http://stackoverflow.com/questions/16678669/paperclip-configuration-to-use-with-openshift/
+STORED_ASSETS="${OPENSHIFT_DATA_DIR}/assets/paperclip"
+LIVE_ASSETS="${OPENSHIFT_REPO_DIR}/public/assets/paperclip"
+
+# Ensure our stored assets directory exists
+if [ ! -d "${STORED_ASSETS}" ]; then
+	echo " Creating permanent assets/paperclip directory"
+	mkdir "${STORED_ASSETS}"
+fi
+
+# Create symlink to stored assets unless we're uploading our own assets
+echo " Restoring stored assets"
+ln -sf "${STORED_ASSETS}" "${LIVE_ASSETS}"
+
 pushd ${OPENSHIFT_REPO_DIR} > /dev/null
 bundle exec rake db:migrate RAILS_ENV="production"
 popd > /dev/null
