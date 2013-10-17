@@ -1,12 +1,12 @@
 RailsApp::Application.routes.draw do
-  resources :posts
+  resource :website_settings, :only => [:show, :edit, :update]
 
+  resources :posts
 
   resources :categories
 
-
   get "welcome/index"
-
+  get 'contact', to: 'welcome#contact'
   root :to => 'welcome#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

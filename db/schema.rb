@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131010212516) do
+ActiveRecord::Schema.define(:version => 20131017005312) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -33,5 +33,14 @@ ActiveRecord::Schema.define(:version => 20131010212516) do
   end
 
   add_index "posts", ["category_id"], :name => "index_posts_on_Category_id"
+
+  create_table "website_settings", :force => true do |t|
+    t.text     "homepage_blurb"
+    t.text     "contact"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
+  end
 
 end

@@ -1,0 +1,27 @@
+<div class='admin-actions pull-right'>
+	<%= link_to "Edit", edit_website_settings_path, :class => 'btn btn-primary' %>
+</div>
+
+<div class='row'>
+	<div class="span11 offset1">
+		<h1>Website Settings</h1>
+	</div>
+</div>
+<div class='row'>
+	<div class="span11 offset1">
+		<h4>Banner</h4>
+		<%= image_tag @website_settings.banner.url(:banner), :class => 'banner' %>
+	</div>
+</div>
+<div class='row'>
+	<div class="span11 offset1">
+		<h4>Homepage Blurb</h4>
+		<p><%= @website_settings.homepage_blurb %></p>
+	</div>
+</div>
+<div class='row'>
+	<div class="span11 offset1">
+		<h4>Contact</h4>
+		<p><%= @website_settings.contact %></p>
+	</div>
+</div>
