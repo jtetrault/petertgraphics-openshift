@@ -26,6 +26,12 @@
 			<% if user_signed_in? %>
 				<%= drop_down current_user.email + " #{'(admin)' if current_user.is_admin?}" do %>
 					<%= menu_item "Log Out", destroy_user_session_path, :method => :DELETE %>
+					<% if current_user.is_admin? %>
+						<%= drop_down_divider %>
+						<%= menu_item "New Post", new_post_path %>
+						<%= menu_item "New Category", new_category_path %>
+						<%= menu_item "Website Settings", website_settings_path %>
+					<% end %>
 				<% end %>
 			<% else %>
 				<%= drop_down "Account" do %>

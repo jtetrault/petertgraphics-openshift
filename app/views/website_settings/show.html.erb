@@ -1,6 +1,8 @@
-<div class='admin-actions pull-right'>
-	<%= link_to "Edit", edit_website_settings_path, :class => 'btn btn-primary' %>
-</div>
+<% if can? :manage, WebsiteSettings %>
+	<div class='admin-actions pull-right'>
+		<%= link_to "Edit", edit_website_settings_path, :class => 'btn btn-primary' %>
+	</div>
+<% end %>
 
 <div class='row'>
 	<div class="span11 offset1">

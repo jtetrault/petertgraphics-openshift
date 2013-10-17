@@ -1,8 +1,10 @@
-<p id="notice"><%= notice %></p>
-<div class="admin-actions pull-right">
-	<%= link_to 'New Post', new_post_path, :class => "btn btn-primary" %>
-	<%= link_to 'Edit Category', edit_category_path(@category), :class => "btn" %>
-</div>
+<% if can? :manage, Category %>
+	<div class="admin-actions pull-right">
+		<%= link_to 'New Post', new_post_path, :class => "btn btn-primary" %>
+		<%= link_to 'Edit Category', edit_category_path(@category), :class => "btn" %>
+	</div>
+<% end %>
+
 <div class="row">
 	<div class="span6 offset1">
 	 	<h1><%= @category.title %></h1>
