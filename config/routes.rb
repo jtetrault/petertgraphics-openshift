@@ -1,4 +1,6 @@
 RailsApp::Application.routes.draw do
+  devise_for :users
+
   resource :website_settings, :only => [:show, :edit, :update]
 
   resources :posts
