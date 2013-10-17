@@ -1,17 +1,21 @@
 class WebsiteSettingsController < ApplicationController
+
   # GET /website_settings
   def show
   	@website_settings = WebsiteSettings.instance
+    authorize! :read, @website_settings
   end
 
   # GET /website_settings/edit
   def edit
   	@website_settings = WebsiteSettings.instance
+    authorize! :update, @website_settings
   end
 
   # POST /website_settings
   def update
-	@website_settings = WebsiteSettings.instance
+    @website_settings = WebsiteSettings.instance
+    authorize! :update, @website_settings
 
     respond_to do |format|
       if @website_settings.update_attributes(params[:website_settings])
