@@ -70,3 +70,6 @@ gem 'therubyracer'
 
 # Singleton ability
 gem 'acts_as_singleton'
+
+# markdown processing with redcarpet
+gem 'redcarpet'
