@@ -23,7 +23,11 @@ module ApplicationHelper
 	end
 
 	def markdown(content)
-		@markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
-		@markdown.render(content).html_safe
+		if content != nil
+			@markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+			return @markdown.render(content).html_safe
+		end
+
+		return ''
 	end
 end
