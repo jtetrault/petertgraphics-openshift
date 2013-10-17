@@ -11,10 +11,8 @@
 	</div>
 </div>
 
-<div class="row">
-	<div class="span8 offset2">
-		<h1><%= link_to image_tag(@post.image.url(:large), :id => "image"), @post.image.url(:original) %></h1>
-	</div>
+<div class="row text-center">
+	<h1><%= link_to image_tag(@post.image.url(:large), :id => "image"), @post.image.url(:original) %></h1>
 </div>
 
 <div class="row">
