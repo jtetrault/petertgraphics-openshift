@@ -36,4 +36,7 @@ RailsApp::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Don't use ssl on local machines. Just causes SSL browser errors.
+  config.force_ssl = false
 end
