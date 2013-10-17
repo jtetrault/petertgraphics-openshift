@@ -73,3 +73,6 @@ gem 'acts_as_singleton'
 
 # markdown processing with redcarpet
 gem 'redcarpet'
+
+# devise - login
+gem 'devise'
