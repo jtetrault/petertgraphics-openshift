@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @page_title = 'Posts'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +16,8 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    @page_title = @post.title
+    set_meta_tags :og => {image: @post.image.url(:large)}
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,6 +29,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
+    @page_title = 'New Post'
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +40,7 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    @page_title = 'Edit Post'
   end
 
   # POST /posts

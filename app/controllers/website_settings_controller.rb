@@ -4,12 +4,14 @@ class WebsiteSettingsController < ApplicationController
   def show
   	@website_settings = WebsiteSettings.instance
     authorize! :read, @website_settings
+    @page_title = 'Website Settings'
   end
 
   # GET /website_settings/edit
   def edit
   	@website_settings = WebsiteSettings.instance
     authorize! :update, @website_settings
+    @page_title = 'Edit Website Settings'
   end
 
   # POST /website_settings

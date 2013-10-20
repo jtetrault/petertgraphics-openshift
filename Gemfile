@@ -76,3 +76,6 @@ gem 'redcarpet'
 
 # devise - login
 gem 'devise'
+
+# meta-tags for generating HTML meta tags easily
+gem 'meta-tags', :require => 'meta_tags'

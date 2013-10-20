@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.order(:title)
+    @page_title = 'Categories'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +16,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
+    @page_title = @category.title
+    set_meta_tags :og => {image: @category.posts.first.image(:large)}
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,6 +29,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new.json
   def new
     @category = Category.new
+    @page_title = 'New Category'
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +40,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1/edit
   def edit
     @category = Category.find(params[:id])
+    @page_title = 'Edit Category'
   end
 
   # POST /categories
