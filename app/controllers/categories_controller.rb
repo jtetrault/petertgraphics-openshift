@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @page_title = @category.title
-    set_meta_tags :og => {image: @category.posts.first.image(:large)}
+    set_meta_tags :og => {:image => @category.posts.first.image(:large)}
 
     respond_to do |format|
       format.html # show.html.erb
