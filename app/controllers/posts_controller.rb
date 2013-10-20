@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @page_title = @post.title
-    set_meta_tags :og => {:image => @post.image.url(:large)}
+    set_meta_tags :og => {:image => protocol_and_host(@post.image.url(:large))}
 
     respond_to do |format|
       format.html # show.html.erb
