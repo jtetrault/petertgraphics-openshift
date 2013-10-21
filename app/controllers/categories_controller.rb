@@ -17,7 +17,10 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @page_title = @category.title
-    set_meta_tags :og => {:image => protocol_and_host(@category.posts.first.image(:large))}
+    set_meta_tags :og => {
+      :image => protocol_and_host(@category.posts.order('created_at DESC').first.image(:large)),
+      :description => @category.description
+    }
 
     respond_to do |format|
       format.html # show.html.erb

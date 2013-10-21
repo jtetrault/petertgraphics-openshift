@@ -17,3 +17,4 @@
 
 # Ignore paperclip uploads
 /public/system
+/public/assets
