@@ -17,8 +17,13 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @page_title = @category.title
+    if @category.posts.any?
+      image_url = protocol_and_host(@category.posts.order('created_at DESC').first.image(:large)) 
+    else
+      image_url = nil
+    end
     set_meta_tags :og => {
-      :image => protocol_and_host(@category.posts.order('created_at DESC').first.image(:large)),
+      :image => image_url,
       :description => @category.description
     }
 
