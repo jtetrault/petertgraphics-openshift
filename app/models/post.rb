@@ -8,7 +8,14 @@ class Post < ActiveRecord::Base
     :path => ":rails_root/public/assets/paperclip/:id/:style/:id.:extension"
   validates :category, :title, presence: true
   validate :must_have_images
-  
+
+  def first_image
+    # Return the first image belonging to this post.
+    #
+    # The object returned is the paperclip attachment,
+    # so methods like url() can be called directly on the result.
+    return images.first.image
+  end  
 
   def short_description
   	result = description[0, 200]
