@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @page_title = @category.title
     if @category.posts.any?
-      image_url = protocol_and_host(@category.posts.order('created_at DESC').first.image(:large)) 
+      image_url = protocol_and_host(@category.posts.order('created_at DESC').first.first_image.url(:large)) 
     else
       image_url = nil
     end
