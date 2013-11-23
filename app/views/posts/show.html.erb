@@ -10,11 +10,14 @@
 <div class="row">
 	<div class="span10 offset1">
 		<h1><%= @post.title %></h1>
+
 	</div>
 </div>
 
 <div class="row text-center">
-	<h1><%= link_to image_tag(@post.image.url(:large), :id => "image"), @post.image.url(:original) %></h1>
+	<% @post.images.each do |image| %>
+		<%= link_to image_tag(image.image.url(:large), :class => "bordered-image"), image.image.url(:original) %>
+	<% end %>
 </div>
 
 <div class="row">

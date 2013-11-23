@@ -1,0 +1,14 @@
+<div class='field'>
+  <%= builder.label :image %>
+  <% if builder.object.image.exists? %>
+    <%= image_tag builder.object.image.url(:medium), :class => "bordered-image" %> <br />
+  <% end %>
+  <%= builder.file_field :image %>
+  <% if !builder.object.new_record? %>
+    <br />
+    <%= builder.label :_destroy do %>
+      <%= builder.check_box :_destroy %>
+      Delete Image
+    <% end %>
+  <% end %>
+</div>
