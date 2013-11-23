@@ -50,8 +50,12 @@
 		<div class="row">
 			<% if notice != nil or alert != nil %>
 				<div class="offset1 span10"%>
-					<p class="notice"><%= notice %></p>
-		   			<p class="alert"><%= alert %></p>
+					<% if notice != nil %>
+						<p class="notice"><%= notice %></p>
+					<% end %>
+					<% if alert != nil %>
+		   				<p class="alert"><%= alert %></p>
+		   			<% end %>
 				</div>
 			<% end %>
 		</div>

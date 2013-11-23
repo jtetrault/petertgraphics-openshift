@@ -20,12 +20,13 @@
       </div>
       <div class="field">
         <%= f.label :category %>
-        <%= collection_select(:post, :category_id, Category.all, :id, :title) %>
+        <%= f.select :category_id, Category.order(:title).map { |category| [category.title, category.id] },
+          selected: @post.category_id ? @post.category_id : params[:category_id] %>
       </div>
 
       <div class="field">
         <%= f.label :description %>
-        <%= f.text_area :description %>
+        <%= f.text_area :description, :class => 'span10' %>
       </div>
 
       <%= f.fields_for :images do |builder| %>
