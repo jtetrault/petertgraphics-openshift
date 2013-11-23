@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @page_title = @post.title
     set_meta_tags :og => {
-      :image => protocol_and_host(@post.image.url(:large)),
+      :image => @post.images.collect{ |image| protocol_and_host(image.image.url(:large))},
       :description => @post.description
     }
 
