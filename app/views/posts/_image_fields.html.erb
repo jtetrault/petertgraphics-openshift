@@ -1,0 +1,8 @@
+<div class='field'>
+  <%= f.label :image %>
+  <% if f.object.image.exists? %>
+    <%= image_tag f.object.image.url(:medium), :class => "bordered-image" %> <br />
+  <% end %>
+  <%= f.file_field :image %> <br />
+  <%= f.link_to_remove raw("<i class='icon-minus'></i> Delete this Image"), :class => 'btn btn-danger' %>
+</div>

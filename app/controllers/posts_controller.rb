@@ -32,7 +32,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
-    @post.images.build
+    @post.images.build  # Every post needs 1 or more images
     @page_title = 'New Post'
 
     respond_to do |format|
@@ -44,7 +44,6 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
-    @post.images.build
     @page_title = 'Edit Post'
   end
 

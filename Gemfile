@@ -79,3 +79,6 @@ gem 'devise'
 
 # meta-tags for generating HTML meta tags easily
 gem 'meta-tags', :require => 'meta_tags'
+
+# nested_form for easily adding multiple images to a post
+gem 'nested_form'
