@@ -15,9 +15,9 @@
 </div>
 
 <div class="row text-center">
-	<% @post.images.each do |image| %>
-		<%= link_to image_tag(image.image.url(:large), :class => "bordered-image"), image.image.url(:original) %>
-	<% end %>
+	<div class="span10 offset1">
+		<%= link_to (image_tag @post.first_image.url(:large), :id => "image", :class => "bordered-image"), @post.first_image.url, :id => "link" %>
+	</div>
 </div>
 
 <div class="row">
@@ -25,6 +25,26 @@
 		<p><%= markdown @post.description %></p>
 	</div>
 </div>
+
+<% if @post.images.count > 1 %>
+	<div class= "row">
+		<div class="span10 offset2">
+			<p>Click on a thumbnail below to view a larger version</p>
+		</div>
+	</div>
+	<div class="row text-center offset1">
+		<% @post.images.each do |image| %>
+			<div class="span3">
+				<p>
+					<%= link_to (image_tag image.image.url(:medium), :class => "bordered-image"), '#',
+						:class => "replace-image", "data-image" => image.image.url(:large),
+						"data-href" => image.image.url %>
+				</p>
+			</div>
+		<% end %>
+	</div>
+<%end %>
+
 <div class="row">
 	<div class="span10 offset2">
 		<p> Posted in <%= link_to @post.category.title, @post.category %> at <%= @post.created_at %> </p>
