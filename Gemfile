@@ -71,12 +71,6 @@ gem 'therubyracer'
 # Singleton ability
 gem 'acts_as_singleton'
 
-# markdown processing with redcarpet
-gem 'redcarpet'
-
-# devise - login
-gem 'devise'
-
 # meta-tags for generating HTML meta tags easily
 gem 'meta-tags', :require => 'meta_tags'
 
