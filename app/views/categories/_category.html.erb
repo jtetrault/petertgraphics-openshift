@@ -7,10 +7,10 @@
 	<div class="span4 offset2">
 		<p> <%= markdown category.description %> </p>
 	</div>
-	<div class="span4">
+	<div class="span4 text-center">
 		<% if !category.posts.empty? %>
 			<% post = category.posts.order("created_at desc").first %>
-			<%= link_to image_tag(post.image.url(:medium), :class => "bordered-image"), category_path(category) %>
+			<%= link_to image_tag(post.first_image.url(:medium), :class => "bordered-image"), category_path(category) %>
 		<% end %>
 	</div>
 </div>
