@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :category
-  has_many :images, :dependent => :destroy
+  has_many :images, :inverse_of => :post, :dependent => :destroy
   attr_accessible :description, :title, :image, :category_id, :images_attributes
   accepts_nested_attributes_for :images, allow_destroy: true
   has_attached_file :image, :styles => {:large => "600x600", :medium => "300x300", :thumb => "100x100"},
