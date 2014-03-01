@@ -18,10 +18,14 @@
 	<div class="span9 offset2">
 		<div class="main-image">
 			<div>
-				<a href="#" id="previous" class="arrow">&lt;</a>
-				<%= link_to (image_tag @post.first_image.url(:large), :id => "image", :class => "bordered-image"), @post.first_image.url, 
-					:id => "link", "data-index" => "0" %>
-				<a href="#" id="next" class="arrow">&gt;</a>
+				<table>
+					<tr>
+						<td><a href="#" id="previous" class="arrow">&lt;</a></td>
+						<td class="main-image"><%= link_to (image_tag @post.first_image.url(:large), :id => "image", :class => "bordered-image"), @post.first_image.url, 
+							:id => "link", "data-index" => "0" %></td>
+						<td><a href="#" id="next" class="arrow">&gt;</a></td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	</div>
