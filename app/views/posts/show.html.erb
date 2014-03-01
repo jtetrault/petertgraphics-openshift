@@ -15,8 +15,15 @@
 </div>
 
 <div class="row text-center">
-	<div class="span10 offset1">
-		<%= link_to (image_tag @post.first_image.url(:large), :id => "image", :class => "bordered-image"), @post.first_image.url, :id => "link" %>
+	<div class="span9 offset2">
+		<div class="main-image">
+			<div>
+				<a href="#" id="previous" class="arrow">&lt;</a>
+				<%= link_to (image_tag @post.first_image.url(:large), :id => "image", :class => "bordered-image"), @post.first_image.url, 
+					:id => "link", "data-index" => "0" %>
+				<a href="#" id="next" class="arrow">&gt;</a>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -33,11 +40,11 @@
 		</div>
 	</div>
 	<div class="row text-center offset1">
-		<% @post.images.each do |image| %>
+		<% @post.images.each_with_index do |image, i| %>
 			<div class="span3">
 				<p>
 					<%= link_to (image_tag image.image.url(:medium), :class => "bordered-image"), image.image.url,
-						:class => "replace-image", "data-image" => image.image.url(:large) %>
+						:class => "replace-image", "data-image" => image.image.url(:large), "data-index" => "#{i}" %>
 				</p>
 			</div>
 		<% end %>
