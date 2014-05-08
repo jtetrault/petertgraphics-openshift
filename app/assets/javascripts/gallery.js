@@ -2,11 +2,14 @@ $(document).ready(function()
 	{
 		images = $("a.replace-image");
 
-		$("a.replace-image").click(function()
-			{
-				replaceLink($("#link"), $(this).attr("href"), $(this).attr("data-index"));
-				replaceImage($("#image"), $(this).attr("data-image"));
-				return false;
+		$("a.replace-image").click(function(e) {
+				e.preventDefault();
+				$('#image-wrapper').hide('blind', 500, function() {
+					replaceLink($("#link"), $(this).attr("href"), $(this).attr("data-index"));
+					replaceImage($("#image"), $(this).attr("data-image"), function(){
+						$('#image-wrapper').show('blind', 500);
+					});
+				}.bind(this));
 			}
 		);
 
@@ -32,11 +35,11 @@ $(document).ready(function()
 				}
 				
 				var replacement = images[index];
-				$('#link').hide('slide', { direction: hide_direction }, 500, function () {
+				$('#image-wrapper').hide('slide', { direction: hide_direction }, 500, function () {
 					replaceLink($("#link"), $(replacement).attr("href"), $(replacement).attr("data-index"));
 					replaceImage($("#image"), $(replacement).attr("data-image"), 
 						function() {
-							$('#link').show('slide', { direction: show_direction }, 500);
+							$('#image-wrapper').show('slide', { direction: show_direction }, 500);
 						}
 					);
 				});

@@ -17,16 +17,18 @@
 <div class="row text-center">
 	<div class="span9 offset2">
 		<div class="main-image">
-			<div>
-				<table>
-					<tr>
-						<td><a href="#" id="previous"><img src="<%= asset_path 'left_arrow.png' %>"/></a></td>
-						<td class="main-image"><%= link_to (image_tag @post.first_image.url(:large), :id => "image", :class => "bordered-image"), @post.first_image.url, 
-							:id => "link", "data-index" => "0" %></td>
-						<td><a href="#" id="next"><img src="<%= asset_path 'right_arrow.png' %>"/></a></td>
-					</tr>
-				</table>
-			</div>
+			<table>
+				<tr>
+					<td class='arrow'><a href="#" id="previous"><img src="<%= asset_path 'left_arrow.png' %>"/></a></td>
+					<td class="main-image">
+						<div id="image-wrapper">
+							<%= link_to (image_tag @post.first_image.url(:large), :id => "image", :class => "bordered-image"), @post.first_image.url, 
+								:id => "link", "data-index" => "0" %>
+						</div>
+					</td>
+					<td class='arrow'><a href="#" id="next"><img src="<%= asset_path 'right_arrow.png' %>"/></a></td>
+				</tr>
+			</table>
 		</div>
 	</div>
 </div>
