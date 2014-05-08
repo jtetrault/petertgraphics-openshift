@@ -10,25 +10,36 @@ $(document).ready(function()
 			}
 		);
 
-		$("a.arrow").click(function()
+		$("#previous, #next").click(function()
 			{
 				var index = +$("#link").attr("data-index");
-				if($(this).attr("id") === "previous")
-				{
-					index--;
-					if(index < 0)
-						index = images.length - 1;
+				if($(this).attr("id") === "previous") {
+					var hide_direction = 'left';
+					var show_direction = 'right';
+					var increment = -1;
 				}
-				else
-				{
-					index++;
-					if(index >= images.length)
-						index = 0;
+				else {
+					var hide_direction = 'right';
+					var show_direction = 'left';
+					var increment = 1;
+				}
+				index += increment;
+				if (index < 0) {
+					index = images.length - 1;
+				}
+				else if (index >= images.length){
+					index = 0; 
 				}
 				
 				var replacement = images[index];
-				replaceLink($("#link"), $(replacement).attr("href"), $(replacement).attr("data-index"));
-				replaceImage($("#image"), $(replacement).attr("data-image"));
+				$('#link').hide('slide', { direction: hide_direction }, 500, function () {
+					replaceLink($("#link"), $(replacement).attr("href"), $(replacement).attr("data-index"));
+					replaceImage($("#image"), $(replacement).attr("data-image"), 
+						function() {
+							$('#link').show('slide', { direction: show_direction }, 500);
+						}
+					);
+				});
 				return false;
 			}
 		);
@@ -40,7 +51,12 @@ function replaceLink(linkElement, href, index)
 	$(linkElement).attr("href", href).attr("data-index", index);
 }
 
-function replaceImage(imageElement, src)
+function replaceImage(imageElement, src, callback)
 {
 	$(imageElement).attr("src", src);
+	$(imageElement).one('load', function () {
+		callback();
+	}).each(function () {
+		if(this.complete) $(this).load();
+	});
 }

@@ -20,10 +20,10 @@
 			<div>
 				<table>
 					<tr>
-						<td><a href="#" id="previous" class="arrow">&lt;</a></td>
+						<td><a href="#" id="previous"><img src="<%= asset_path 'left_arrow.png' %>"/></a></td>
 						<td class="main-image"><%= link_to (image_tag @post.first_image.url(:large), :id => "image", :class => "bordered-image"), @post.first_image.url, 
 							:id => "link", "data-index" => "0" %></td>
-						<td><a href="#" id="next" class="arrow">&gt;</a></td>
+						<td><a href="#" id="next"><img src="<%= asset_path 'right_arrow.png' %>"/></a></td>
 					</tr>
 				</table>
 			</div>

@@ -4,31 +4,6 @@
 
 $arrow-background: #0a0a0a;
 
-
-a.arrow
-{
-	color: white;
-	font-size: 60pt;
-	background-color: $arrow-background;
-	line-height: 60pt;
-	zoom: 1;
-	filter: alpha(opacity=50);
-	opacity: 0.5;
-
-	text-align: center;
-	vertical-align: middle;
-	display: inline-block;
-	border-radius: 50%;
-	border: 1px solid black;
-	width: 60pt;
-	height: 60pt;
-
-	&:hover
-	{
-		text-decoration: none;
-	}
-}
-
 div.main-image
 {
 	display: table;
